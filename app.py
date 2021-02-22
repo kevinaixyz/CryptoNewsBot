@@ -166,24 +166,21 @@ def upload2googlesheet():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    if 'credentials' not in flask.session:
-        return flask.redirect('authorize')
-
-    # Load credentials from the session.
-    credentials = google.oauth2.credentials.Credentials(
-        **flask.session['credentials'])
+    # if 'credentials' not in flask.session:
+    #     return flask.redirect('authorize')
+    #
+    # # Load credentials from the session.
+    # credentials = google.oauth2.credentials.Credentials(
+    #     **flask.session['credentials'])
 
     data = flask.request.form['data']
     try:
         # insert to google sheet
-        r1 = GoogleSheet.insert_to_google_sheet(data, credentials)
+        # r1 = GoogleSheet.insert_to_google_sheet(data, credentials)
         # insert to google storage
         file_name = flask.request.form['filename']
-        r2 = GoogleStorage.upload_google_storage(file_name, data, credentials)
-        if r1 is not None and r2[0] == 200:
-            return "Success"
-        else:
-            return [r1, r2]
+        r = GoogleStorage.upload_google_storage(file_name, data)
+        return r
     except Exception as e:
         print(e)
         return str(e)
