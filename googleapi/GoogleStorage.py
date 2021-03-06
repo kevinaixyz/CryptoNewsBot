@@ -2,7 +2,7 @@
 from google.cloud import storage
 from config import config
 
-# export GOOGLE_APPLICATION_CREDENTIALS="rni-onchain-f1e6e7c3ea90.json"
+# export GOOGLE_APPLICATION_CREDENTIALS="storage-credential.json"
 
 
 def upload_google_storage(source_file_name, data):

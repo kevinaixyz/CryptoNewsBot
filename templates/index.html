@@ -266,9 +266,9 @@
 
     function optionFormatter(value, row, index){
         let name = "impact-"+row["id"];
-        let innerHtml = `<input type="radio" name=${name} value="positive" onselect="setValueToData('impact','positive',${index})"> Positive <br>`+
-              `<input type="radio" name=${name} value="neutral" onselect="setValueToData('impact','neutral',${index})"> Neutral <br>`+
-              `<input type="radio" name=${name} value="negative" onselect="setValueToData('impact','negative',${index})"> Negative <br>`;
+        let innerHtml = `<input type="radio" name=${name} value="positive" onclick="setValueToData('impact','positive',${index})"> Positive <br>`+
+              `<input type="radio" name=${name} value="neutral" onclick="setValueToData('impact','neutral',${index})"> Neutral <br>`+
+              `<input type="radio" name=${name} value="negative" onclick="setValueToData('impact','negative',${index})"> Negative <br>`;
         $("input[name='impact-theblock-93723']:checked").val();
         return innerHtml;
     }
